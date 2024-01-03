@@ -1,23 +1,36 @@
 import { FC, ReactNode, createContext, useReducer } from "react";
+import { Model } from "../types";
 
 export const ModelsContext = createContext(undefined);
 
 export const ModelsReducer = (state: any, action: any) => {
   switch (action.type) {
     case "ADD_MODEL":
-      return { models: [action.payload, ...state.models] };
+      return { ...state, models: [action.payload, ...state.models] };
     case "EDIT_MODEL":
       return {
         ...state,
-        models: state.models.map((model: any) => {
+        models: state.models?.map((model: Model) => {
           if (model._id === action.payload._id) {
             return action.payload;
           }
           return model;
         }),
       };
+    case "DELETE_MODEL":
+      return {
+        ...state,
+        models: state.models?.filter((model: Model) => model._id),
+      };
+    case "SELECT_MODEL":
+      return {
+        ...state,
+        selectedModel: state.models?.find(
+          (model: Model) => model._id === action.payload
+        ),
+      };
     default:
-      return state; // Handle unknown actions
+      return state;
   }
 };
 
@@ -29,6 +42,7 @@ export const ModelsContextProvider: FC<ContextProviderProps> = ({
 }) => {
   const [state, dispatch] = useReducer(ModelsReducer, {
     models: [{ _id: 1, name: "User", attributes: [] }],
+    selectedModel: null,
   });
 
   return (
