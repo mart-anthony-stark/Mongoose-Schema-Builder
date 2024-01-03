@@ -48,7 +48,7 @@ export const ModelsContextProvider: FC<ContextProviderProps> = ({
   children,
 }) => {
   const [state, dispatch] = useReducer(ModelsReducer, {
-    models: [{ _id: 1, name: "User", attributes: [] }],
+    models: [],
     selectedModel: null,
     error: null,
   });

@@ -4,6 +4,8 @@ import { IoIosAdd } from "react-icons/io";
 import FlatList from "../../components/FlatList";
 import { useModelsContext } from "../../hooks/useModelsContext";
 import { Model } from "../../types";
+import { MdDelete } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 const TYPES = [
   { type: "String", sample: '"John Doe"' },
@@ -129,7 +131,7 @@ const AttributeSidebar: React.FC = (): JSX.Element => {
         data={attributes}
         keyExtractor="_id"
         RenderItem={(item: any) => (
-          <div className="grid grid-cols-[1fr_100px_20px] items-center mb-2">
+          <div className="grid grid-cols-[1fr_100px_30px] items-center mb-2">
             {/* ATTRIBUTE NAME */}
             {editing === item._id ? (
               <input
@@ -172,6 +174,18 @@ const AttributeSidebar: React.FC = (): JSX.Element => {
             </select>
 
             {/* SET OTHER OPTIONS */}
+            <div
+              className="cursor-pointer rounded bg-slate-700 p-1 flex items-center justify-center"
+              onClick={() => {
+                setAttributes(
+                  attributes?.filter((attr) => attr._id !== item._id)
+                );
+              }}
+            >
+              <IconContext.Provider value={{ className: "flex" }}>
+                <MdDelete />
+              </IconContext.Provider>
+            </div>
           </div>
         )}
       />
