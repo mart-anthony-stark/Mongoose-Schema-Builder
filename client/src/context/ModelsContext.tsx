@@ -20,7 +20,9 @@ export const ModelsReducer = (state: any, action: any) => {
     case "DELETE_MODEL":
       return {
         ...state,
-        models: state.models?.filter((model: Model) => model._id),
+        models: state.models?.filter(
+          (model: Model) => model._id !== action.payload
+        ),
       };
     case "SELECT_MODEL":
       return {
