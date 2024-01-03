@@ -1,7 +1,7 @@
-import AppHeader from "../../components/AppHeader/AppHeader";
-import ModelsSidebar from "./ModelsSidebar/ModelsSidebar";
+import AppHeader from "../../components/AppHeader";
+import ModelsSidebar from "./ModelsSidebar";
 import "./home.css";
-import AttributeSidebar from "./AttributeSidebar/AttributeSidebar";
+import AttributeSidebar from "./AttributeSidebar";
 import { useModelsContext } from "../../hooks/useModelsContext";
 
 function index() {
@@ -9,9 +9,9 @@ function index() {
   return (
     <div className="h-[100vh]">
       <AppHeader />
-      <div className="flex justify-between h-full pt-16">
+      <div className="grid grid-cols-[200px_1fr_300px] h-full pt-16">
         <ModelsSidebar />
-        <main>{JSON.stringify(selectedModel)}</main>
+        <main className="flex-1 w-full">{JSON.stringify(selectedModel)}</main>
         <AttributeSidebar />
       </div>
     </div>
