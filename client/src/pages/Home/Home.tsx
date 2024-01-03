@@ -1,7 +1,7 @@
-import Sidebar from "../../components/Sidebar/Sidebar";
 import AppHeader from "../../components/AppHeader/AppHeader";
 import ModelsSidebar from "./ModelsSidebar/ModelsSidebar";
 import "./home.css";
+import AttributeSidebar from "./AttributeSidebar/AttributeSidebar";
 
 function index() {
   return (
@@ -10,13 +10,7 @@ function index() {
       <div className="flex justify-between h-full pt-16">
         <ModelsSidebar />
         <main></main>
-        <Sidebar className="border-l-[1px]">
-          <input
-            type="text"
-            placeholder="Model Name "
-            className="input input-bordered w-full max-w-xs"
-          />
-        </Sidebar>
+        <AttributeSidebar />
       </div>
     </div>
   );
