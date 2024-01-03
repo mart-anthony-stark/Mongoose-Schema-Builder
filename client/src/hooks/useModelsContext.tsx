@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ModelsContext } from "../context/ModelsContext";
+import { Model } from "../types";
 
 type DispatchArg = {
   type: string;
@@ -14,7 +15,8 @@ export const useModelsContext = () => {
     );
   }
   return context as {
-    models: any[];
+    selectedModel?: Model;
+    models: Model[];
     dispatch: ({ type, payload }: DispatchArg) => void;
   };
 };
