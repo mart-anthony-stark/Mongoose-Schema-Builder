@@ -12,6 +12,9 @@ export type TitleProps = {
 };
 
 export type ScrollerProps = {
-  children?: ReactNode;
+  children?: React.ReactNode;
   className?: string;
+  data?: any[];
+  keyExtractor?: string;
+  RenderItem?: (item: any) => React.ReactNode;
 };
