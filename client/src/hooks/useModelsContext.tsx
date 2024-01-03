@@ -6,6 +6,10 @@ type DispatchArg = {
   type: string;
   payload?: any;
 };
+type Error = {
+  title: string;
+  message: string;
+};
 export const useModelsContext = () => {
   const context = useContext(ModelsContext);
 
@@ -17,6 +21,7 @@ export const useModelsContext = () => {
   return context as {
     selectedModel?: Model;
     models: Model[];
+    error?: Error;
     dispatch: ({ type, payload }: DispatchArg) => void;
   };
 };
