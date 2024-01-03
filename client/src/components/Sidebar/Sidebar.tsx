@@ -32,7 +32,7 @@ const Scroller: FC<ScrollerProps> = ({
   RenderItem,
 }): JSX.Element => {
   return (
-    <div className={`h-[94%] overflow-y-auto mt-2 ${className}`}>
+    <div className={`h-[94%] overflow-y-auto ${className}`}>
       {RenderItem &&
         keyExtractor &&
         data?.map((item: any) => (
