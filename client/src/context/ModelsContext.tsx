@@ -29,6 +29,11 @@ export const ModelsReducer = (state: any, action: any) => {
           (model: Model) => model._id === action.payload
         ),
       };
+    case "SET_ERROR":
+      return {
+        ...state,
+        error: action.payload,
+      };
     default:
       return state;
   }
@@ -43,6 +48,7 @@ export const ModelsContextProvider: FC<ContextProviderProps> = ({
   const [state, dispatch] = useReducer(ModelsReducer, {
     models: [{ _id: 1, name: "User", attributes: [] }],
     selectedModel: null,
+    error: null,
   });
 
   return (
