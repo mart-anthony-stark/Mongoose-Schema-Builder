@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import { IoIosAdd } from "react-icons/io";
 import FlatList from "../../../components/FlatList";
+import { useModelsContext } from "../../../hooks/useModelsContext";
 
 const TYPES = [
   { type: "String", sample: '"John Doe"' },
@@ -12,6 +13,8 @@ const TYPES = [
 ];
 
 const AttributeSidebar: React.FC = (): JSX.Element => {
+  const { dispatch } = useModelsContext();
+
   const [attributes, setAttributes] = useState<Array<any>>([]);
   const [editing, setEditing] = useState();
   const editText = useRef<HTMLInputElement>(null);
@@ -47,6 +50,16 @@ const AttributeSidebar: React.FC = (): JSX.Element => {
 
       setEditing(undefined);
     }
+  };
+
+  const handleCreateModel = () => {
+    const payload = {
+      _id: Date.now(),
+      name,
+      attributes,
+    };
+
+    dispatch({ type: "ADD_MODEL", payload });
   };
 
   return (
@@ -139,7 +152,11 @@ const AttributeSidebar: React.FC = (): JSX.Element => {
         )}
       />
 
-      <button className="btn btn-accent">
+      <button
+        disabled={attributes.filter((attr) => attr.name !== "").length === 0}
+        onClick={handleCreateModel}
+        className="btn btn-accent"
+      >
         <span>Create Model</span>
       </button>
     </Sidebar>
