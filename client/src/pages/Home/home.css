@@ -1,0 +1,9 @@
+.delete-icon:hover {
+  color: rgb(194, 82, 82);
+}
+.delete-btn {
+  display: none;
+}
+.model-file:hover .delete-btn {
+  display: block;
+}
