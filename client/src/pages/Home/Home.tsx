@@ -1,3 +1,4 @@
+import Sidebar from "../../components/Sidebar/Sidebar";
 import "./home.css";
 
 function index() {
@@ -7,20 +8,19 @@ function index() {
         Schema Builder
       </header>
       <div className="flex justify-between h-full pt-12">
-        <aside className="border-r-[1px] sidebar">
-          <div className="flex justify-between items-center">
-            <h4 className="text-xl">Models</h4>
+        <Sidebar className="border-r-[1px]">
+          <Sidebar.Title title="Models">
             <button className="btn btn-sm">Add Model</button>
-          </div>
-        </aside>
+          </Sidebar.Title>
+        </Sidebar>
         <main></main>
-        <aside className="border-l-[1px] sidebar">
+        <Sidebar className="border-l-[1px]">
           <input
             type="text"
             placeholder="Model Name "
             className="input input-bordered w-full max-w-xs"
           />
-        </aside>
+        </Sidebar>
       </div>
     </div>
   );
