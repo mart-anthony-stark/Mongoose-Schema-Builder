@@ -24,9 +24,20 @@ const Title: FC<TitleProps> = ({ title, children }): JSX.Element => {
   );
 };
 
-const Scroller: FC<ScrollerProps> = ({ children, className }) => {
+const Scroller: FC<ScrollerProps> = ({
+  children,
+  className,
+  data,
+  keyExtractor,
+  RenderItem,
+}): JSX.Element => {
   return (
     <div className={`h-[94%] overflow-y-auto mt-2 ${className}`}>
+      {RenderItem &&
+        keyExtractor &&
+        data?.map((item: any) => (
+          <RenderItem key={item[keyExtractor]} {...item} />
+        ))}
       {children}
     </div>
   );
