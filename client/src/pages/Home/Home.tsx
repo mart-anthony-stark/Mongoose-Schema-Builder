@@ -1,18 +1,14 @@
 import Sidebar from "../../components/Sidebar/Sidebar";
+import AppHeader from "../../components/AppHeader/AppHeader";
+import ModelsSidebar from "./ModelsSidebar/ModelsSidebar";
 import "./home.css";
 
 function index() {
   return (
     <div className="h-[100vh]">
-      <header className="absolute bg-slate-600 h-12 w-full p-2">
-        Schema Builder
-      </header>
-      <div className="flex justify-between h-full pt-12">
-        <Sidebar className="border-r-[1px]">
-          <Sidebar.Title title="Models">
-            <button className="btn btn-sm">Add Model</button>
-          </Sidebar.Title>
-        </Sidebar>
+      <AppHeader />
+      <div className="flex justify-between h-full pt-16">
+        <ModelsSidebar />
         <main></main>
         <Sidebar className="border-l-[1px]">
           <input

@@ -6,7 +6,10 @@ const Sidebar: FC<SidebarProps> & {
   Scroller: FC<ScrollerProps>;
 } = ({ className, children, ...props }): JSX.Element => {
   return (
-    <aside className={`sidebar ${className}`} {...props}>
+    <aside
+      className={`border-gray-700 max-w-[250px] w-full p-2 ${className}`}
+      {...props}
+    >
       {children}
     </aside>
   );
@@ -21,8 +24,12 @@ const Title: FC<TitleProps> = ({ title, children }): JSX.Element => {
   );
 };
 
-const Scroller: FC<ScrollerProps> = ({ children }) => {
-  return <div>{children}</div>;
+const Scroller: FC<ScrollerProps> = ({ children, className }) => {
+  return (
+    <div className={`h-[94%] overflow-y-auto mt-2 ${className}`}>
+      {children}
+    </div>
+  );
 };
 
 Sidebar.Title = Title;

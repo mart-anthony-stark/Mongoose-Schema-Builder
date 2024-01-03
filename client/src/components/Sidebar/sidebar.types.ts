@@ -13,4 +13,5 @@ export type TitleProps = {
 
 export type ScrollerProps = {
   children?: ReactNode;
+  className?: string;
 };
