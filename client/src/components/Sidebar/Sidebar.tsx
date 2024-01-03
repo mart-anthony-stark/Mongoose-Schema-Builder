@@ -18,7 +18,7 @@ const Sidebar: FC<SidebarProps> & {
 const Title: FC<TitleProps> = ({ title, children }): JSX.Element => {
   return (
     <div className="flex justify-between items-center">
-      <h4 className="text-xl">{title}</h4>
+      <h4 className="text-xl select-none">{title}</h4>
       {children}
     </div>
   );
