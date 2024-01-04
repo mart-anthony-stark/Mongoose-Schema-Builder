@@ -7,3 +7,8 @@
 .model-file:hover .delete-btn {
   display: block;
 }
+
+.code-viewer pre {
+  margin-top: 0 !important;
+  background: none !important;
+}
