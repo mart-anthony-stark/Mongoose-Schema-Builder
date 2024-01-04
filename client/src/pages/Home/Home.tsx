@@ -8,7 +8,7 @@ function index() {
   return (
     <div className="h-[100vh]">
       <AppHeader />
-      <div className="grid grid-cols-[200px_1fr_300px] h-full pt-16">
+      <div className="grid grid-cols-[250px_1fr_350px] h-full pt-16">
         <ModelsSidebar />
         <CodeViewer />
         <AttributeSidebar />
